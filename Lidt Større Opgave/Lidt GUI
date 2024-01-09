@@ -45,15 +45,25 @@ function draw() {
     frameRate(60)
     background(255)
     ypunkter.push([y])
-    if( y > 100+længde) {
-        F = fjeder*(y-(100+længde))
-}
-        pspeed = ypunkter[1]-ypunkter[0]
+    
+    bounce(y, længde, fjeder)
+
+    pspeed = ypunkter[1]-ypunkter[0]
     v = (g/60)+pspeed
     y = y+v-F
 
-    
+    GUI()
+}
 
+function bounce(a, b, c) 
+{
+    if( a > 100+b) {
+      F = c*(y-(100+b))
+}
+
+}
+
+function GUI() {
     ypunkter.shift([1])
     console.log(ypunkter[1])
     text("y punkter: "+(round(ypunkter[0],1)), 5, 15);
